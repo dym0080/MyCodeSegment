@@ -174,38 +174,6 @@ for (var i = 0; i < length; i++) {
 for (var i = 0, length = array.length; i < length; i++) {
     console.log(array[i]);
 }
-```||操作符，并且将将默认值当做第二个参数传入。如果第一个参数返回的值为`false`，那么第二个值将会认为是一个默认值。如下面这个示例：
-```
-function User(name, age) {
-    this.name = name || "Oliver Queen";
-    this.age = age || 27;
-}
-var user1 = new User();
-console.log(user1.name); // Oliver Queen 
-console.log(user1.age); // 27 
-var user2 = new User("Barry Allen", 25); 
-console.log(user2.name); // Barry Allen 
-console.log(user2.age); // 25
-```
-#### JS10.在循环中缓存array.length
-这个技巧很简单，这个在处理一个很大的数组循环时，对性能影响将是非常大的。基本上，大家都会写一个这样的同步迭代的数组：
-```
-for (var i = 0; i < array.length; i++) {
-    console.log(array[i]);
-}
-```
-如果是一个小型数组，这样做很好，如果你要处理的是一个大的数组，这段代码在每次迭代都将会重新计算数组的大小，这将会导致一些延误。为了避免这种现象出现，可以将array.length做一个缓存：
-```
-var length = array.length;
-for (var i = 0; i < length; i++) {
-    console.log(array[i]);
-}
-```
-你也可以写在这样：
-```
-for (var i = 0, length = array.length; i < length; i++) {
-    console.log(array[i]);
-}
 ```
 #### JS11.获取数组中最后一个元素
 `Array.prototype.slice(begin,end)`用来获取`begin`和`end`之间的数组元素。如果你不设置`end`参数，将会将数组的默认长度值当作end值。但有些同学可能不知道这个函数还可以接受负值作为参数。如果你设置一个负值作为`begin`的值，那么你可以获取数组的最后一个元素。如：
