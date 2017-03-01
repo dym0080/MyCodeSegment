@@ -128,4 +128,49 @@ console.log(emptyAccount.cash); // 0
 console.log(emptyAccount.hasMoney); // false
 ```
 >在这个示例中，只要`account.cash`的值大于`0`，那么`account.hasMoney`返回的值就是`true`。
-#### JS8.F
+#### JS8.使用+将字符串转换成数字
+这个技巧非常有用，其非常简单，可以交字符串数据转换成数字，不过其只适合用于字符串数据，否则将返回`NaN`，比如下面的示例：
+```
+function toNumber(strNumber) {
+    return +strNumber;
+}
+console.log(toNumber("1234")); // 1234 
+console.log(toNumber("ACB")); // NaN
+```
+这个也适用于Date，在本例中，它将返回的是时间戳数字：
+`console.log(+new Date()) // 1461288164385`
+
+#### JS9.使用||运算符
+在ES6中有默认参数这一特性。为了在老版本的浏览器中模拟这一特性，可以使用||操作符，并且将将默认值当做第二个参数传入。如果第一个参数返回的值为`false`，那么第二个值将会认为是一个默认值。如下面这个示例：
+```
+function User(name, age) {
+    this.name = name || "Oliver Queen";
+    this.age = age || 27;
+}
+var user1 = new User();
+console.log(user1.name); // Oliver Queen 
+console.log(user1.age); // 27 
+var user2 = new User("Barry Allen", 25); 
+console.log(user2.name); // Barry Allen 
+console.log(user2.age); // 25
+```
+#### JS10.在循环中缓存array.length
+这个技巧很简单，这个在处理一个很大的数组循环时，对性能影响将是非常大的。基本上，大家都会写一个这样的同步迭代的数组：
+```
+for (var i = 0; i < array.length; i++) {
+    console.log(array[i]);
+}
+```
+如果是一个小型数组，这样做很好，如果你要处理的是一个大的数组，这段代码在每次迭代都将会重新计算数组的大小，这将会导致一些延误。为了避免这种现象出现，可以将array.length做一个缓存：
+```
+var length = array.length;
+for (var i = 0; i < length; i++) {
+    console.log(array[i]);
+}
+```
+你也可以写在这样：
+```
+for (var i = 0, length = array.length; i < length; i++) {
+    console.log(array[i]);
+}
+```
