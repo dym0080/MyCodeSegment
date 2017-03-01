@@ -142,19 +142,6 @@ console.log(toNumber("ACB")); // NaN
 `console.log(+new Date()) // 1461288164385`
 
 #### JS9.使用||运算符
-在ES6中有默认参数这一特性。为了在老版本的浏览器中模拟这一特性，可以使用#### JS8.使用+将字符串转换成数字
-这个技巧非常有用，其非常简单，可以交字符串数据转换成数字，不过其只适合用于字符串数据，否则将返回`NaN`，比如下面的示例：
-```
-function toNumber(strNumber) {
-    return +strNumber;
-}
-console.log(toNumber("1234")); // 1234 
-console.log(toNumber("ACB")); // NaN
-```
-这个也适用于Date，在本例中，它将返回的是时间戳数字：
-`console.log(+new Date()) // 1461288164385`
-
-#### JS9.使用||运算符
 在ES6中有默认参数这一特性。为了在老版本的浏览器中模拟这一特性，可以使用`||`操作符，并且将将默认值当做第二个参数传入。如果第一个参数返回的值为`false`，那么第二个值将会认为是一个默认值。如下面这个示例：
 ```
 function User(name, age) {
