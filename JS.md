@@ -892,5 +892,5 @@ String.prototype.trim=function(type){
 
 
 ## 本文收集来源
-- [编写自己的代码库（javascript常用实例的实现与封装）](https://segmentfault.com/a/1190000010225928),[对应的GITHUB地址]（https://github.com/chenhuiYj/ec-do/blob/master/ec-do.js）
+- [编写自己的代码库（javascript常用实例的实现与封装）](https://segmentfault.com/a/1190000010225928),[对应的GITHUB地址](https://github.com/chenhuiYj/ec-do/blob/master/ec-do.js)
 
